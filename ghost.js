@@ -18,11 +18,7 @@ ageDisplay.innerText = "Age: 3000000000 Years Old"
 startButton.innerText = "Start"
 candyButton.innerText = "Candy"
 scareButton.innerText = "Scare"
-/*
-setInterval function: use to run the threat function. how to start time when start clicked? if that's the case, do all the functions have to be nested inside the start function?
-*/
-//console.log(startButton)
-//data in the game object: health, age, power, candy, assistant level, candy method, scare method, threat method. no age. going to use a timer. 
+ticks = 0
 
 class Game {
     constructor(assistantLevel) {
@@ -35,43 +31,43 @@ class Game {
         this.threatList = ["Timmy's Mom", "Timmy's Principal", "Santa"]
     }
     candy() {
-        
+        console.log("yum")
+        /*
         if(this.health !== 100) {
             this.health === this.health + 10
         } else {
             this.message.innerText = `Lord Halloween is full and content. He doesn't want any candy right now`
+            */
         }
-    }
+       
     scare() {
-        
+        console.log("boo")
+        /*
         if(this.power !== 100) {
             this.power = 1000
             this.message.innerText = `You have stopped ${this.threat}. Lord Halloween's power is ${this.power}`
         }
+        */
     }
 
-    runThreat(threat) {
+    runThreat() {
+        console.log("threat incoming!")
+        /*
         this.threat = this.threatList[(Math.floor)(Math.random)(this.threat.length)]
         if(this.threat === "Timmy's Mom") {
-        this.message.innerText =`Timmy's Mom hates Halloween! She won't let Timmy decorate the house! Her attitude is threatening the spirit of Halloween for Timmy, and Lord Halloween is losing power! Scare her to counter the threat and restore Lord Halloween's power!`
-        this.power = this.power - 10    
+            this.message.innerText =`Timmy's Mom hates Halloween! She won't let Timmy decorate the house! Her attitude is threatening the spirit of Halloween for Timmy, and Lord Halloween is losing power! Scare her to counter the threat and restore Lord Halloween's power!`
+            this.power = this.power - 10    
         } else if(this.threat === "Timmy's Pincipal") {
-        this.message.innerText = `Timmy's Principal hates when kids have fun at school! They won't let the students wear costumes or have a party! Their attitude is threatening the spirit of Halloween for all the students, and Lord Halloween is losing power! Scare them to counter the threat and restore Lord Halloween's power!`
-        this.power = this.power - 20
+            this.message.innerText = `Timmy's Principal hates when kids have fun at school! They won't let the students wear costumes or have a party! Their attitude is threatening the spirit of Halloween for all the students, and Lord Halloween is losing power! Scare them to counter the threat and restore Lord Halloween's power!`
+            this.power = this.power - 20
         } else if(this.threat === "Santa") {
-        this.message.innerText = `The War on Halloween has begun! Stores are already selling Christmas decorations and playing All I Want For Christmas! Santa is threatening the spirit of Halloween for all everyone, and Lord Halloween is losing power! Scare Santa to counter the threat and restore Lord Halloween's power!`
-        this.power = this.power - 30
+            this.message.innerText = `The War on Halloween has begun! Stores are already selling Christmas decorations and playing All I Want For Christmas! Santa is threatening the spirit of Halloween for all everyone, and Lord Halloween is losing power! Scare Santa to counter the threat and restore Lord Halloween's power!`
+            this.power = this.power - 30
         }
+        */
     }
-    /*
-
-    timer: nest inside a the start funciton, which will run when start clicked. start already contains everything to start the game, check if the player has one or lost, and start incrementing age and decrementing health and run the threat funciton. but those will be on different timers, so I will need mulitiple setIntervals. can i put them within the start function?  yes. and you don't need to write out a massive function. declare them separately, like you did runThreat, then just put them in the setInterval parameters without parentheses
-    setInterval(function () {
-        
-    } 1000);
-    */
-    
-    winOrLose () {
+   
+    winOrLose() {
         if(this.health === 0 || this.power === 0) {
         this.message.innerText = `Game Over! The spirit of Halloween is fading away. Soon it will just be Christmas and tests all year long`
         this.power = 100;
@@ -82,37 +78,66 @@ class Game {
         } else if(age === 3000000100) {
         this.message.innerText = `You win! Lord Halloween has reached the ripe old age of ${this.age}! You have sustained the spirit of Halloween for ${this.age - 3000000000} years! Click the start button to play again.`
         //stop game timer
-        } 
-    }
-    ageAndHealth () {
-        this.age = this.age + 1
-        this.health = this.health - 1
-        }
-
-    clearMessage () {
-        this.message.innerText = ""
-        }
-    
-    start() {
-        setInterval(function() {
-            console.log(testing)
-        }, 1000)
-        setInterval(this.winOrLose, 1000)
-        setInterval(this.ageAndHealth, 5000)
-        setInterval(this.runThreat, 20000)
-        setInterval(this.clearMessage, 10000)
     } 
-   
+}
+
+ageAndHealth () {
+    console.log("age goiing up, health going down")
+    /*
+    this.age = this.age + 1
+    this.health = this.health - 1
+    */
+}
+
+clearMessage () {
+    this.message.innerText = ""
+}
+
+gameTimer() {
+    console.log("time is ticking")
+    ticks++
+    if(ticks%1 === 0) {
+        this.ageAndHealth()
+    } if(ticks%5 === 0) {
+        this.runThreat()
+    }
+}
+
+
+clearInterval(interval)
+interval = setInterval(this.start, 1000)
+
+start() {
+        console.log("game has started")
+        this.gameTimer()
+    } 
 }
 
 const gameLevelOne = new Game(1)
 
+startButton.addEventListener("click", gameLevelOne.start)
+
+candyButton.addEventListener("click", gameLevelOne.candy)
+
+scareButton.addEventListener("click", gameLevelOne.scare)
+
 //gameLevelOne.start()
 
-console.log(gameLevelOne.clearMessage)
+//this can access the interval, i guess. it console logs 1. but i can't get the functions inside start to run when it loads. also, I don't want the interval to be automatic. I want it to start when I click start. 
+console.log(gameLevelOne.interval)
 
 //todo tomorrow: figure out why my functions won't run (variables undefined)
 
-//figure out how to stop the time when the game ends
+//figure out how to stop the time when the game ends. can do a game state variable. if active, run time...but still requires figuring out how to stop time. 
+
+//oooh i could count down from the total time to win! to do that, set ticks to the total time to start, then decrement it in your timer. 
 
 //create event listeners for the three buttons
+
+//create global ticks var set at 0, include ticks incrementer in your timer variable, then set the timing of diff functions by a conditional dependent on the ticks. do i need a while loop? the while loop is accessing the initial value of ticks immediately (0) and running infinitely. 
+
+//can use timeOut for delaying a game intro screen. or to do an animation bringing the ghost in or something
+
+//make a function to change the pumpkin on an interval
+
+//and maybe an animation one to make the pumpkin jump or something on an interval. 
