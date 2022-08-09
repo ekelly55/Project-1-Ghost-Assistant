@@ -18,6 +18,7 @@ ageDisplay.innerText = "Age: 3000000000 Years Old"
 startButton.innerText = "Start"
 candyButton.innerText = "Candy"
 scareButton.innerText = "Scare"
+interval = ""
 ticks = 0
 
 class Game {
@@ -36,10 +37,10 @@ class Game {
         if(this.health !== 100) {
             this.health === this.health + 10
         } else {
-            this.message.innerText = `Lord Halloween is full and content. He doesn't want any candy right now`
-            */
+            message.innerText = `Lord Halloween is full and content. He doesn't want any candy right now`
         }
-       
+        */
+    }   
     scare() {
         console.log("boo")
         /*
@@ -79,7 +80,7 @@ class Game {
         this.message.innerText = `You win! Lord Halloween has reached the ripe old age of ${this.age}! You have sustained the spirit of Halloween for ${this.age - 3000000000} years! Click the start button to play again.`
         //stop game timer
     } 
-}
+    }
 
 ageAndHealth () {
     console.log("age goiing up, health going down")
@@ -95,36 +96,48 @@ clearMessage () {
 
 gameTimer() {
     console.log("time is ticking")
-    ticks++
+    //ticks++
+    /*
     if(ticks%1 === 0) {
         this.ageAndHealth()
     } if(ticks%5 === 0) {
         this.runThreat()
     }
+    */
 }
 
 
-clearInterval(interval)
-interval = setInterval(this.start, 1000)
 
+//this works to run diff code at diff increments of time. but i can't run the identical functions
 start() {
-        console.log("game has started")
-        this.gameTimer()
+    ticks++
+    //console.log(interval)
+    if(ticks%2 === 0) {
+        console.log("age increasing, health decreasing")
     } 
+    if(ticks%5 === 0) {
+        //console.log("threat detected")
+    } 
+} 
 }
 
 const gameLevelOne = new Game(1)
 
-startButton.addEventListener("click", gameLevelOne.start)
+console.log(gameLevelOne.candy())
+
+startButton.addEventListener("click", function () {
+    gameLevelOne.interval = setInterval(gameLevelOne.start, 1000)
+})
+
+//clearInterval(gameLevelOne.interval)
 
 candyButton.addEventListener("click", gameLevelOne.candy)
 
 scareButton.addEventListener("click", gameLevelOne.scare)
 
-//gameLevelOne.start()
 
-//this can access the interval, i guess. it console logs 1. but i can't get the functions inside start to run when it loads. also, I don't want the interval to be automatic. I want it to start when I click start. 
-console.log(gameLevelOne.interval)
+
+//WHAT'S GOING WELL: got the interval to start running on click, the interval then invokes the start function. I can put all my code for each function inside the start function and it works, which will be a temporary workarouund. do a commit now. 
 
 //todo tomorrow: figure out why my functions won't run (variables undefined)
 
