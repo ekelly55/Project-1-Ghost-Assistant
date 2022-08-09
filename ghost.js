@@ -2,7 +2,7 @@ console.log("js loaded")
 
 
 //DOM variables.
-let message = document.getAnimations("message-display")
+const message = document.getElementById("message-display")
 const title = document.getElementById("game-title")
 const healthDisplay = document.getElementById("health-display")
 const powerDisplay = document.getElementById("power-display")
@@ -11,7 +11,7 @@ const startButton = document.getElementById("start-button")
 const candyButton = document.getElementById("candy-button")
 const scareButton = document.getElementById("scare-button")
 
-message.innerText = "testing"
+message.innerText = "Welcome to Spooky Land! This is Lord Halloween, the benevolent ruler of Spooky Land. His magic spooky power sustains the Spirit of Halloween and keeps all of Spooky Land happy! As a lowly novice ghost, your job is to attend to Lord Halloween's needs. Feed him candy to increase his health. There are many threats to the Spirit of Halloween, which will decrease Lord Halloween's power. Use the scare button to increase his power again."
 healthDisplay.innerText = `Health: 100`
 powerDisplay.innerText = `Power: 100`
 ageDisplay.innerText = `Age: 3000000000 years old.`
@@ -106,7 +106,7 @@ class Game {
     }
     
     clearMessage () {
-        message.innerText = ""
+        //message.innerText = ""
     }
     
     gameTimer() {
@@ -118,6 +118,7 @@ class Game {
             gameLevelOne.runThreat()
         }
     }
+    
     
     
     
