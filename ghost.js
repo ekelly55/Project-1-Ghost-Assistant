@@ -1,23 +1,20 @@
 console.log("js loaded")
 
-//DOM variables
-let message = document.getElementById("message-display")
+
+//DOM variables.
+let message = document.getAnimations("message-display")
 const title = document.getElementById("game-title")
 const healthDisplay = document.getElementById("health-display")
-let healthValue = 
 const powerDisplay = document.getElementById("power-display")
-let powerValue = ""
 const ageDisplay = document.getElementById("age-display")
-let ageValue = ""
 const startButton = document.getElementById("start-button")
 const candyButton = document.getElementById("candy-button")
 const scareButton = document.getElementById("scare-button")
 
-
 message.innerText = "testing"
-healthDisplay.innerText = "Health:"
-powerDisplay.innerText = "Power:"
-ageDisplay.innerText = "Age:"
+healthDisplay.innerText = `Health: 100`
+powerDisplay.innerText = `Power: 100`
+ageDisplay.innerText = `Age: 100`
 startButton.innerText = "Start"
 candyButton.innerText = "Candy"
 scareButton.innerText = "Scare"
@@ -50,7 +47,7 @@ class Game {
     scare() {
         message.innerText = "boo"
         this.power = this.power + 10
-        powerDisplay.innerText = `Power ${this.power}`
+        powerDisplay.innerText = `Power: ${this.power}`
     
         /*
         if(this.power !== 100) {
@@ -73,10 +70,11 @@ class Game {
             this.power = this.power - 20
         } else if(this.threat === "Santa") {
             this.message.innerText = `The War on Halloween has begun! Stores are already selling Christmas decorations and playing All I Want For Christmas! Santa is threatening the spirit of Halloween for all everyone, and Lord Halloween is losing power! Scare Santa to counter the threat and restore Lord Halloween's power!`
-            this.power = this.power - 30
+            */
+           this.power = this.power - 30
+           powerDisplay.innerText = `Power: ${this.power}`
         }
-        */
-    }
+    
     
     winOrLose() {
         message.innerText = "will you win or lose?"
@@ -100,9 +98,11 @@ class Game {
         message.innerText = "age goiing up, health going down"
     
         /*
+        */
         this.age = this.age + 1
         this.health = this.health - 1
-        */
+        ageDisplay.innerText = `Age: ${this.age} years old.`
+        healthDisplay.innerText = `Health: ${this.health}`
     }
     
     clearMessage () {
@@ -138,7 +138,7 @@ class Game {
 
 const gameLevelOne = new Game(1)
 
-gameLevelOne.scare()
+gameLevelOne.ageAndHealth()
 
 //console.log(setInterval(gameLevelOne.start, 1000))
 //i can start the interval, call the start function and it works with no errors or undefined in the console
