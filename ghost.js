@@ -33,7 +33,9 @@ class Game {
         this.threatList = ["Timmy's Mom", "Timmy's Principal", "Santa"]
     }
     candy() {
+        //can't access these variables to redefine them. taking the same approach as with power returns undefined in the display. why can't the healthDisplay text access the new value of health?
         if(this.health !== 100) {
+            this.health === 100
             this.health === this.health + 10
             message.innerText = "yum"
             healthDisplay.innerText = `Health: ${this.health}`
@@ -44,13 +46,12 @@ class Game {
         */
     }   
     scare() {
-        
+        //can't actually access starting value of power. when you click scare, it sets it to 100, then adds 10. if you change it to gameLevelOne.power, it comes back undefined. the code was like this by accident. this is not what it should do
         if(this.power !== 100) {
-            this.power = 1000
-            message.innerText = "boo"
+            this.power = 100
             this.power = this.power + 10
             powerDisplay.innerText = `Power: ${this.power}`
-            this.message.innerText = `You have stopped ${this.threat}. Lord Halloween's power is ${this.power}`
+            message.innerText = `You have stopped ${this.threat}. Lord Halloween's power is ${this.power}`
         }
         /*
         */
@@ -59,6 +60,7 @@ class Game {
     runThreat() {
         
         this.power = this.power - 10
+        //decrementing the power works, because the function is called as gameLevelOne.runThreat()
         /*
         this.threat = this.threatList[(Math.floor)(Math.random)(this.threat.length)]
         if(this.threat === "Timmy's Mom") {
@@ -72,13 +74,13 @@ class Game {
             this.power = this.power - 30
         }
         */
-        powerDisplay.innerText = `Power: ${this.power}`
+       powerDisplay.innerText = `Power: ${this.power}`
     }
     
     
     winOrLose() {
         message.innerText = "will you win or lose?"
-      
+        
         if(this.health === 0 || this.power === 0) {
             this.message.innerText = `Game Over! The spirit of Halloween is fading away. Soon it will just be Christmas and tests all year long`
             this.power = 100;
@@ -111,7 +113,7 @@ class Game {
     
     gameTimer() {
         ticks++
-        console.log(ticks)
+        //console.log(ticks)
         if(ticks%10 === 0) {
             gameLevelOne.ageAndHealth()
         } if(ticks%20 === 0) {
@@ -143,7 +145,7 @@ const gameLevelOne = new Game(1)
 
 //gameLevelOne.ageAndHealth()
 
-//console.log(setInterval(gameLevelOne.start, 1000))
+//console.log(gameLevelOne.health)
 //i can start the interval, call the start function and it works with no errors or undefined in the console
 
 startButton.addEventListener("click", function () {
@@ -158,10 +160,7 @@ candyButton.addEventListener("click", gameLevelOne.candy)
 scareButton.addEventListener("click", gameLevelOne.scare)
 
 
-
-//WHAT'S GOING WELL: got the interval to start running on click, the interval then invokes the start function. I can put all my code for each function inside the start function and it works, which will be a temporary workarouund. two options: eliminate the class constructor and just do an object. the constructor is only necessary if i want to level the game up. I need a functioning game first. other option, put all code in the start function. that' sthe least desirable option. or ask for help. 
-
-//todo this afternoon: figure out why all my dom elements come back undefined. "can't set attributes of undefined" type of and console log each to pinpoint what isn't working. once you have that figured out, then you can add all your code for each method into the start function. 
+//todo: get all functions running properly, then figure out how to stop the game.  
 
 //figure out how to stop the time when the game ends. can do a game state variable. if active, run time...but still requires figuring out how to stop time. 
 
