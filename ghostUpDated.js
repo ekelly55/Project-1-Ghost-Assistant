@@ -44,33 +44,31 @@ const game = {
     },
     
     scare: function() {
-        //actually don't need the conditional, since the power is capped at 100. if you change that to make it more challenging, you'll need the conditional to avoid exceeding 100
-        //if(game.power !== 100) {
+        if(game.power < 100 && game.power > 90) {
             game.power = 100
+        } else if(game.power < 100){
+            game.power = game.power + 10
+        }
             powerDisplay.innerText = `Power: ${game.power}`
             message.innerText = `You have stopped ${game.threat}. Lord Halloween's power is ${ game.power}`
-            game.power = 100
     },
     
         /*
         */
     
-    runThreat: function () {
-        
-        game.power = game.power - 10
-      
+    runThreat: function () {  
         game.threat = game.threatList[Math.floor(Math.random()*game.threatList.length)]
         if(game.threat === "Timmy's Mom") {
-             message.innerText =`Timmy's Mom 
-             hates Halloween! She won't let Timmy decorate the house! Her attitude is threatening the spirit of Halloween for Timmy, and Lord Halloween is losing power! Scare her to counter the threat and restore Lord Halloween's power!`
+             message.innerText =`Timmy's Mom hates Halloween! She won't let Timmy decorate the house! Her attitude is threatening the spirit of Halloween for Timmy, and Lord Halloween is losing power! Scare Timmy's Mom to counter the threat and restore Lord Halloween's power!`
              
-             game.power =  game.power - 10    
+             game.power = game.power - 40    
         } else if(game.threat === "Timmy's Pincipal") {
-             message.innerText = `Timmy's Principal hates when kids have fun at school! They won't let the students wear costumes or have a party! Their attitude is threatening the spirit of Halloween for all the students, and Lord Halloween is losing power! Scare them to counter the threat and restore Lord Halloween's power!`
-             game.power =  game.power - 20
+             message.innerText =`Timmy's Principal hates when kids have fun at school! They won't let the students wear costumes or have a party! Their attitude is threatening the spirit of Halloween for all the students, and Lord Halloween is losing power! Scare Timmy's Principal to counter the threat and restore Lord Halloween's power!`
+             game.power = game.power - 20
+             //why doesn't this threat reduce the power!?
         } else if(game.threat === "Santa") {
              message.innerText = `The War on Halloween has begun! Stores are already selling Christmas decorations and playing All I Want For Christmas! Santa is threatening the spirit of Halloween for all everyone, and Lord Halloween is losing power! Scare Santa to counter the threat and restore Lord Halloween's power!`
-             game.power =  game.power - 30
+             game.power =  game.power - 50
         }
         powerDisplay.innerText = `Power: ${game.power}`
         console.log(game.threat)
@@ -81,27 +79,26 @@ const game = {
        
        
        winOrLose: function() {
-           message.innerText = "will you win or lose?"
-           
-           if( game.health === 0 ||  game.power === 0) {
+           console.log(game.health, game.power)
+           if(game.health === 0) {
                message.innerText = `Game Over! The spirit of Halloween is fading away. Soon it will just be Christmas and tests all year long`
-               game.power = 100;
-               game.age = 3000000000;
-               game.health = 100;
                clearInterval(interval);
-            } else if(game.age === 3000000009) {
+            } else if(game.power <= 0) {
+                message.innerText = `Game Over! The spirit of Halloween is fading away. Soon it will just be Christmas and tests all year long`
+                clearInterval(interval)
+            } else if(game.age === 3000000049) {
                 message.innerText = `You win! Lord Halloween has reached the ripe old age of ${game.age+1}! You have sustained the spirit of Halloween for ${game.age - 2999999999} years! Click the start button to play again.`
                 game.assistantLevel = game.assistantLevel + 1;
                 clearInterval(interval)
-            //stop game timer
-        } 
-    },
+                }
+        }, 
+    
         /*
         */
     
     ageAndHealth: function () {
         game.age =  game.age + 1
-        game.health =  game.health - 1
+        game.health =  game.health - 10
         ageDisplay.innerText = `Age: ${game.age} years old.`
         healthDisplay.innerText = `Health: ${game.health}`
     },
@@ -115,9 +112,9 @@ const game = {
         //console.log(ticks)
         if(ticks%1 === 0) {
             game.ageAndHealth()
-            /*
-        } if(ticks%10 === 0) {
+        } if(ticks%5 === 0) {
             game.runThreat()
+            /*
             */
         }
         //message.innerText = ""
@@ -134,7 +131,7 @@ const game = {
 
 //console.log(gameLevelOne.health)
 
-
+//start button only works after reload
 startButton.addEventListener("click", function () {
     interval = setInterval(game.start, 1000)
 })
@@ -147,16 +144,14 @@ candyButton.addEventListener("click", game.candy)
 scareButton.addEventListener("click", game.scare)
 
 
-//todo: get all functions running properly, then figure out how to stop the game.  
+//todo: figure out how to reset game conditions on start, figure out how to reset game with start button, figure out why timmy's principal threat doesn't subtract from the power. figure out where to put win or lose in the game timer function so that it doesn't increment after that. that way the power or health won't go below 0. also, the event handlers (except start) still work after game over or win, which will clear the win or lose message and replace it with the countered threat message for scare. 
 
-//figure out how to stop the time when the game ends. can do a game state variable. if active, run time...but still requires figuring out how to stop time. 
-
-//oooh i could count down from the total time to win! to do that, set ticks to the total time to start, then decrement it in your timer. but how to stop the time if the player loses?
-
-//create global ticks var set at 0, include ticks incrementer in your timer variable, then set the timing of diff functions by a conditional dependent on the ticks. 
+//need better timing for message display. the threats come fast, so you can't really read them, or the message that comes after the scare. but if i slow it down the game becomes much less fun. one way is to make the age and health go faster so you have to monitor it closely. also, you can space out the buttons to make it harder to get between them. will need to do that in css with flexbox
 
 //can use timeOut for delaying a game intro screen. or to do an animation bringing the ghost in or something
 
 //make a function to change the pumpkin on an interval
 
 //and maybe an animation one to make the pumpkin jump or something on an interval. 
+
+//add additonal threats: timmy's dad: raisins, timmy's neighbor: lights out, rain on halloween
