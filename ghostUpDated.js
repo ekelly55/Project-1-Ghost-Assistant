@@ -155,7 +155,7 @@ candyButton.addEventListener("click", game.candy)
 scareButton.addEventListener("click", game.scare)
 
 
-//todo: figure out how to reset game conditions on start, figure out how to reset game with start button, figure out why timmy's principal threat doesn't subtract from the power. 
+//todo: figure out how to reset game conditions on start, figure out how to reset game with start button,
 
 //need better timing for message display. the threats come fast, so you can't really read them, or the message that comes after the scare. but if i slow it down the game becomes much less fun. one way is to make the age and health go faster so you have to monitor it closely. also, you can space out the buttons to make it harder to get between them. will need to do that in css with flexbox. two choices: fast with no time to read the messages, which is a challenge, or slow with time to read the messages, but no challenge. i guess if it's a tamagotchi game, the purpose is to keep it going long term. you don't have to watch it every second, but you can't leave it too long. otherwise, it's a speed game, not so much about taking care of LH, but keeping those numbers up. if i run it slow, need to win sooner. but in either case, maybe introduce the threats at the beginning, then say something like "threat detected: threat name" and a simpler message like "threat defeated". also, maybe a larger message display at the bottom (remember, the stats will be near the bottom) and a smaller display on the main game screen. also, the yum, and i'm full and boo can appear as talk bubbles using css, maybe animations. 
 
