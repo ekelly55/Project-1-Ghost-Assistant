@@ -44,14 +44,14 @@ const game = {
     },
     
     scare: function() {
-        
-        if(game.power !== 100) {
+        //actually don't need the conditional, since the power is capped at 100. if you change that to make it more challenging, you'll need the conditional to avoid exceeding 100
+        //if(game.power !== 100) {
             game.power = 100
             powerDisplay.innerText = `Power: ${game.power}`
             message.innerText = `You have stopped ${game.threat}. Lord Halloween's power is ${ game.power}`
             game.power = 100
-        }
     },
+    
         /*
         */
     
@@ -60,17 +60,21 @@ const game = {
         game.power = game.power - 10
       
         game.threat = game.threatList[Math.floor(Math.random()*game.threatList.length)]
-        if( game.threat === "Timmy's Mom") {
-             message.innerText =`Timmy's Mom hates Halloween! She won't let Timmy decorate the house! Her attitude is threatening the spirit of Halloween for Timmy, and Lord Halloween is losing power! Scare her to counter the threat and restore Lord Halloween's power!`
+        if(game.threat === "Timmy's Mom") {
+             message.innerText =`Timmy's Mom 
+             hates Halloween! She won't let Timmy decorate the house! Her attitude is threatening the spirit of Halloween for Timmy, and Lord Halloween is losing power! Scare her to counter the threat and restore Lord Halloween's power!`
+             
              game.power =  game.power - 10    
         } else if(game.threat === "Timmy's Pincipal") {
              message.innerText = `Timmy's Principal hates when kids have fun at school! They won't let the students wear costumes or have a party! Their attitude is threatening the spirit of Halloween for all the students, and Lord Halloween is losing power! Scare them to counter the threat and restore Lord Halloween's power!`
              game.power =  game.power - 20
-        } else if( game.threat === "Santa") {
+        } else if(game.threat === "Santa") {
              message.innerText = `The War on Halloween has begun! Stores are already selling Christmas decorations and playing All I Want For Christmas! Santa is threatening the spirit of Halloween for all everyone, and Lord Halloween is losing power! Scare Santa to counter the threat and restore Lord Halloween's power!`
              game.power =  game.power - 30
         }
-        powerDisplay.innerText = `Power: ${ game.power}`
+        powerDisplay.innerText = `Power: ${game.power}`
+        console.log(game.threat)
+        console.log(game.power)
     },
         /*
         */
@@ -84,10 +88,11 @@ const game = {
                game.power = 100;
                game.age = 3000000000;
                game.health = 100;
-               game.assistantLevel = game.assistantLevel + 1;
-            //stop game timer
-        } else if(game.age === 3000000100) {
-             message.innerText = `You win! Lord Halloween has reached the ripe old age of ${ game.age}! You have sustained the spirit of Halloween for ${ game.age - 3000000000} years! Click the start button to play again.`
+               clearInterval(interval);
+            } else if(game.age === 3000000009) {
+                message.innerText = `You win! Lord Halloween has reached the ripe old age of ${game.age+1}! You have sustained the spirit of Halloween for ${game.age - 2999999999} years! Click the start button to play again.`
+                game.assistantLevel = game.assistantLevel + 1;
+                clearInterval(interval)
             //stop game timer
         } 
     },
@@ -95,8 +100,6 @@ const game = {
         */
     
     ageAndHealth: function () {
-        message.innerText = "age goiing up, health going down"
-    
         game.age =  game.age + 1
         game.health =  game.health - 1
         ageDisplay.innerText = `Age: ${game.age} years old.`
@@ -107,16 +110,17 @@ const game = {
     },
     
     gameTimer: function() {
+        game.winOrLose()
         ticks++
         //console.log(ticks)
-        if(ticks%5 === 0) {
+        if(ticks%1 === 0) {
             game.ageAndHealth()
             /*
         } if(ticks%10 === 0) {
+            game.runThreat()
             */
-           game.runThreat()
         }
-        message.innerText = ""
+        //message.innerText = ""
     },
   
     start: function() {
