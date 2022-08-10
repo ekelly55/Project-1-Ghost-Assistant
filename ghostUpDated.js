@@ -22,142 +22,125 @@ interval = ""
 ticks = 0
 
 
-class Game {
-    constructor(assistantLevel) {
-        this.assistantLevel = assistantLevel
-        this.health = 100;
-        this.age = 3000000000;
-        this.power = 100;
-        this.candyLevel = 100;
-        this.threat = ""
-        this.threatList = ["Timmy's Mom", "Timmy's Principal", "Santa"]
-    }
-    candy() {
-        //can't access these variables to redefine them. taking the same approach as with power returns undefined in the display. why can't the healthDisplay text access the new value of health?
-        if(this.health !== 100) {
-            this.health === 100
-            this.health === this.health + 10
-            message.innerText = "yum"
-            healthDisplay.innerText = `Health: ${this.health}`
+const game = {
+     
+        assistantLevel: 1,
+        health: 100,
+        age: 3000000000,
+        power: 100,
+        candyLevel: 100,
+        threat: "",
+        threatList: ["Timmy's Mom", "Timmy's Principal", "Santa"],
+    
+    candy: function() {
+        if(game.health < 100 && game.health > 90) {
+            game.health = 100
+        } else if(game.health < 100) {
+            game.health = game.health + 10
         } else {
-            message.innerText = `Lord Halloween is full and content. He doesn't want any candy right now`
+        message.innerText = `Lord Halloween is full and content. He doesn't want any candy right now`
         }
-        /*
-        */
-    }   
-    scare() {
-        //can't actually access starting value of power. when you click scare, it sets it to 100, then adds 10. if you change it to gameLevelOne.power, it comes back undefined. the code was like this by accident. this is not what it should do
-        if(this.power !== 100) {
-            this.power = 100
-            this.power = this.power + 10
-            powerDisplay.innerText = `Power: ${this.power}`
-            message.innerText = `You have stopped ${this.threat}. Lord Halloween's power is ${this.power}`
-        }
-        /*
-        */
-    }
+    healthDisplay.innerText = `Health: ${game.health}`
+    },
     
-    runThreat() {
+    scare: function() {
         
-        this.power = this.power - 10
-        //decrementing the power works, because the function is called as gameLevelOne.runThreat()
-        /*
-        this.threat = this.threatList[(Math.floor)(Math.random)(this.threat.length)]
-        if(this.threat === "Timmy's Mom") {
-            this.message.innerText =`Timmy's Mom hates Halloween! She won't let Timmy decorate the house! Her attitude is threatening the spirit of Halloween for Timmy, and Lord Halloween is losing power! Scare her to counter the threat and restore Lord Halloween's power!`
-            this.power = this.power - 10    
-        } else if(this.threat === "Timmy's Pincipal") {
-            this.message.innerText = `Timmy's Principal hates when kids have fun at school! They won't let the students wear costumes or have a party! Their attitude is threatening the spirit of Halloween for all the students, and Lord Halloween is losing power! Scare them to counter the threat and restore Lord Halloween's power!`
-            this.power = this.power - 20
-        } else if(this.threat === "Santa") {
-            this.message.innerText = `The War on Halloween has begun! Stores are already selling Christmas decorations and playing All I Want For Christmas! Santa is threatening the spirit of Halloween for all everyone, and Lord Halloween is losing power! Scare Santa to counter the threat and restore Lord Halloween's power!`
-            this.power = this.power - 30
+        if(game.power !== 100) {
+            game.power = 100
+            powerDisplay.innerText = `Power: ${game.power}`
+            message.innerText = `You have stopped ${game.threat}. Lord Halloween's power is ${ game.power}`
+            game.power = 100
         }
+    },
+        /*
         */
-       powerDisplay.innerText = `Power: ${this.power}`
-    }
     
-    
-    winOrLose() {
-        message.innerText = "will you win or lose?"
+    runThreat: function () {
         
-        if(this.health === 0 || this.power === 0) {
-            this.message.innerText = `Game Over! The spirit of Halloween is fading away. Soon it will just be Christmas and tests all year long`
-            this.power = 100;
-            this.age = 3000000000;
-            this.health = 100;
-            this.assistantLevel = 1;
+        game.power = game.power - 10
+      
+        game.threat = game.threatList[Math.floor(Math.random()*game.threatList.length)]
+        if( game.threat === "Timmy's Mom") {
+             message.innerText =`Timmy's Mom hates Halloween! She won't let Timmy decorate the house! Her attitude is threatening the spirit of Halloween for Timmy, and Lord Halloween is losing power! Scare her to counter the threat and restore Lord Halloween's power!`
+             game.power =  game.power - 10    
+        } else if(game.threat === "Timmy's Pincipal") {
+             message.innerText = `Timmy's Principal hates when kids have fun at school! They won't let the students wear costumes or have a party! Their attitude is threatening the spirit of Halloween for all the students, and Lord Halloween is losing power! Scare them to counter the threat and restore Lord Halloween's power!`
+             game.power =  game.power - 20
+        } else if( game.threat === "Santa") {
+             message.innerText = `The War on Halloween has begun! Stores are already selling Christmas decorations and playing All I Want For Christmas! Santa is threatening the spirit of Halloween for all everyone, and Lord Halloween is losing power! Scare Santa to counter the threat and restore Lord Halloween's power!`
+             game.power =  game.power - 30
+        }
+        powerDisplay.innerText = `Power: ${ game.power}`
+    },
+        /*
+        */
+       
+       
+       winOrLose: function() {
+           message.innerText = "will you win or lose?"
+           
+           if( game.health === 0 ||  game.power === 0) {
+               message.innerText = `Game Over! The spirit of Halloween is fading away. Soon it will just be Christmas and tests all year long`
+               game.power = 100;
+               game.age = 3000000000;
+               game.health = 100;
+               game.assistantLevel = game.assistantLevel + 1;
             //stop game timer
-        } else if(age === 3000000100) {
-            this.message.innerText = `You win! Lord Halloween has reached the ripe old age of ${this.age}! You have sustained the spirit of Halloween for ${this.age - 3000000000} years! Click the start button to play again.`
+        } else if(game.age === 3000000100) {
+             message.innerText = `You win! Lord Halloween has reached the ripe old age of ${ game.age}! You have sustained the spirit of Halloween for ${ game.age - 3000000000} years! Click the start button to play again.`
             //stop game timer
         } 
+    },
         /*
         */
-    }
     
-    ageAndHealth () {
+    ageAndHealth: function () {
         message.innerText = "age goiing up, health going down"
     
-        /*
-        */
-        this.age = this.age + 1
-        this.health = this.health - 1
-        ageDisplay.innerText = `Age: ${this.age} years old.`
-        healthDisplay.innerText = `Health: ${this.health}`
-    }
+        game.age =  game.age + 1
+        game.health =  game.health - 1
+        ageDisplay.innerText = `Age: ${game.age} years old.`
+        healthDisplay.innerText = `Health: ${game.health}`
+    },
     
-    clearMessage () {
-        //message.innerText = ""
-    }
+    clearMessage: function () {
+    },
     
-    gameTimer() {
+    gameTimer: function() {
         ticks++
         //console.log(ticks)
-        if(ticks%10 === 0) {
-            gameLevelOne.ageAndHealth()
-        } if(ticks%20 === 0) {
-            gameLevelOne.runThreat()
-        }
-    }
-    
-    
-    
-    
-    //this works to run diff code at diff increments of time. but i can't run the identical functions
-    start() {
-        gameLevelOne.gameTimer()
-
-        /*
-        ticks++
-        console.log(ticks)
-        if(ticks%2 === 0) {
-            console.log("age increasing, health decreasing")
-        } 
         if(ticks%5 === 0) {
-            console.log("threat detected")
-        } 
-        */
-    } 
+            game.ageAndHealth()
+            /*
+        } if(ticks%10 === 0) {
+            */
+           game.runThreat()
+        }
+        message.innerText = ""
+    },
+  
+    start: function() {
+        game.gameTimer()
+    }, 
 }
 
-const gameLevelOne = new Game(1)
+
 
 //gameLevelOne.ageAndHealth()
 
 //console.log(gameLevelOne.health)
-//i can start the interval, call the start function and it works with no errors or undefined in the console
+
 
 startButton.addEventListener("click", function () {
-    gameLevelOne.interval = setInterval(gameLevelOne.start, 1000)
+    interval = setInterval(game.start, 1000)
 })
-//i can refresh page, click start and invoke the start funtion every 1s. i see the start outputs in the console, as long as the code is directly in the start function, not calling others as nested functions. 
 
 
 
-candyButton.addEventListener("click", gameLevelOne.candy)
 
-scareButton.addEventListener("click", gameLevelOne.scare)
+candyButton.addEventListener("click", game.candy)
+
+scareButton.addEventListener("click", game.scare)
 
 
 //todo: get all functions running properly, then figure out how to stop the game.  
