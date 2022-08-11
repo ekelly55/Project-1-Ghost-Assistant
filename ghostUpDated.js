@@ -132,8 +132,8 @@ const game = {
 
     pumpkinChange: function () {
         if(pumpkin.src = "game-images/eye-pumpkin.png") {
-        pumpkin.src = "game-images/flame-pumpkin.png"
-        pumpkin.style.size = 25%
+        pumpkin.src = "game-images/flame-pumpkin.png";
+        //pumpkin.style.height = 
         } else if(pumpkin.src = "game-images/flame-pumpkin.png") {
         pumpkin.src = "game-images/hand-pumpkin.png"
         } else if(pumpkin.src = "game-images/hand-pumpkin.png") {
