@@ -163,24 +163,31 @@ button {
     height: 85%;
 }
 
+.ghost-wrapper {
+    display: flex;
+    
+}
+
 .ghost-pic {
     grid-row: 2 / span 1;
     grid-column: 3 / span 2;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    opacity: 0.5;
 }
+    
+.ghost {
+    opacity: 0.5;
+
+}
+.ghost-talk {
+    display: flex;
+    align-items: flex-start;
+}
+
+
 /*
 talk bubble is inheriting some properties from ghost pic div. separate them or limit properties of that div and ascribe most of them to the ghost pic itself.
 */
-.ghost-talk {
-    grid-row: 2 / span 1;
-    grid-column: 3 / span 1;
-    display: flex;
-    align-content: flex-start;
-    justify-content: flex-end;
-}
 
 .pumpkin-pic {
     grid-row: 2 / span 2;
