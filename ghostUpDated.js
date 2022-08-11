@@ -1,4 +1,5 @@
 console.log("js loaded")
+console.log("fingers crossed")
 
 
 //DOM variables.
