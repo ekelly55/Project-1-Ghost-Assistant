@@ -153,9 +153,9 @@ const game = {
         } if(ticks%5 === 0) {
             game.runThreat()
             /*
-            */
         } if(ticks%10 === 0) {
             game.pumpkinChange()
+            */
         }
     },
   

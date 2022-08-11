@@ -1,27 +1,15 @@
-Playing Ghost Assistant
+<Ghost Assistant>
 
-Basic Game Play
+You are a novice ghost assistant to Lord Halloween, the ruler of Spooky Land. You must keep him healthy and keep his magic spooky power up. His power is what maintains the Spirit of Halloween and keeps Spooky Land happy. 
 
-Click the “age” button to start
-Continue clicking the age button to advance time and age LH
-Monitor LH’s health as time passes and click the candy button to replenish health
-When an onscreen message appears detailing a threat, it will decrease LH’s power, click the scare button to counter it and replenish LH’s power.
-If LH’s health or power gets to 0, he dies and you lose. If you keep LH alive for 100 years you win. 
+Lord Halloween's health declines with age. Click the CANDY button to feed him candy and restore his health. The greater danger is that threats to the Spirit of Halloween will deplete Lord Halloween's spooky power. Click the SCARE button to counter those threats and restore his power. 
 
-Required Processes
+This game is a variation of Tamagotchi, a handheld digital pet game created by Akihiro Yokoi and Aki Maita.
 
-Click the “age” button to start
-Run age method, increment time by 1, decrement health by x amount
-Updates the DOM message element with blank string.
-Monitor LH’s health as time passes and click the candy button to replenish health
-Run candy method: increment health by y amount. 
-When an onscreen message appears detailing a threat, it will decrease LH’s power
-Threat method will be nested in the age method. It will run the threat method based on how much time has passed. 
-If it meets the condition, it will choose a random threat from an array of threats, decrement LH’s power by x amount and print a message in the DOM message element detailing the threat and LH’s reduced power level and telling the player to use the scare method. 
-Click the scare button to counter the threat
-Run scare function
-Will increment LH’s power by x amount
-Will update the DOM message element with a message to the player.
+Wireframe
+
+![Prototype image of game screen.] https://imgur.com/gallery/3AK8iJj
+
 
 
 If LH’s health or power gets to 0, he dies and you lose. If you keep LH alive for 100 years you win. 
