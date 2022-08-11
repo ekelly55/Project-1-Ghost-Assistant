@@ -12,6 +12,10 @@ const startButton = document.getElementById("start-button")
 const candyButton = document.getElementById("candy-button")
 const scareButton = document.getElementById("scare-button")
 const boo = document.getElementById("ghost-talk")
+const yum = document.getElementById("yum")
+const noThanks = document.getElementById("no-thanks")
+
+console.log(yum)
 
 message.innerText = "Welcome to Spooky Land! As a lowly novice ghost, your job is to attend to every need of Lord Halloween, benevolent ruler of Spooky Land. His magic spooky power sustains the Spirit of Halloween and keeps all of Spooky Land happy! Feed him candy to increase his health. Use the scare button to increase his power after threats to the Spirit of Halloween. Click start to play!"
 healthDisplay.innerText = `Health: 100`
@@ -25,25 +29,30 @@ ticks = 0
 
 
 const game = {
-     
-        assistantLevel: 1,
-        health: 100,
-        age: 3000000000,
-        power: 100,
-        candyLevel: 100,
-        threat: "",
-        threatList: ["Timmy's Mom", "Timmy's Principal", "Santa"],
+    
+    assistantLevel: 1,
+    health: 100,
+    age: 3000000000,
+    power: 100,
+    candyLevel: 100,
+    threat: "",
+    threatList: ["Timmy's Mom", "Timmy's Principal", "Santa"],
     
     candy: function() {
         if(game.health > 0 && game.power > 0 && game.age < 3000000049)  {
-        if(game.health < 100 && game.health > 90) {
-            game.health = 100
-        } else if(game.health < 100) {
-            game.health = game.health + 10
-        } else {
-        message.innerText = `Lord Halloween is full and content. He doesn't want any candy right now`
-        }
-        healthDisplay.innerText = `Health: ${game.health}`
+            if(game.health < 100 && game.health > 90) {
+                game.health = 100
+                yum.style.opacity = 1
+            } else if(game.health < 100) {
+                game.health = game.health + 10
+                noThanks.style.opacity = 0
+                yum.style.opacity = 1
+            } else {
+                yum.style.opacity = 0
+                noThanks.style.opacity = 1
+                message.innerText = `Lord Halloween is full and content. He doesn't want any candy right now`
+            }
+            healthDisplay.innerText = `Health: ${game.health}`
         }
     },
     
@@ -124,6 +133,8 @@ const game = {
         game.winOrLose()
         ticks++
         boo.style.opacity = 0;
+        yum.style.opacity = 0;
+        noThanks.style.opacity = 1
         //console.log(ticks)
         if(ticks%1 === 0) {
             game.ageAndHealth()

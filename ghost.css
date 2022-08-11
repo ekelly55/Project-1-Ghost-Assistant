@@ -163,6 +163,45 @@ button {
     height: 85%;
 }
 
+.pumpkin-pic {
+    grid-row: 2 / span 2;
+    grid-column: 2 / span 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start; 
+}
+
+.pumpkin {
+    height: 20%;
+}
+
+.lord-talk {
+    grid-row: 2 / span 1;
+    grid-column: 1 / span 1;
+    display: grid;
+    grid-template-rows: 1 fr 1fr;
+    grid-template-columns: 1fr 1fr; 
+}
+
+.yum {
+    grid-row: 1 / span 1;
+    grid-column: 2 / span 1;
+    width: 80%;
+    height: 40%;
+    justify-self: end;
+    opacity: 0;
+}
+
+.no-thanks {
+    grid-row: 1 / span 1;
+    grid-column: 2 / span 1;
+    width: 80%;
+    height: 40%;
+    justify-self: end;
+    opacity: 0;
+
+}
+
 .ghost-wrapper {
     display: flex;
     
@@ -189,15 +228,3 @@ button {
 /*
 talk bubble is inheriting some properties from ghost pic div. separate them or limit properties of that div and ascribe most of them to the ghost pic itself.
 */
-
-.pumpkin-pic {
-    grid-row: 2 / span 2;
-    grid-column: 2 / span 1;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start; 
-}
-
-.pumpkin {
-    height: 20%;
-}
