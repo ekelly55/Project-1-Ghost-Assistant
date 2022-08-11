@@ -14,8 +14,9 @@ const scareButton = document.getElementById("scare-button")
 const boo = document.getElementById("ghost-talk")
 const yum = document.getElementById("yum")
 const noThanks = document.getElementById("no-thanks")
+const pumpkin = document.getElementById("pumpkin")
 
-console.log(yum)
+console.log(pumpkin.src)
 
 message.innerText = "Welcome to Spooky Land! As a lowly novice ghost, your job is to attend to every need of Lord Halloween, benevolent ruler of Spooky Land. His magic spooky power sustains the Spirit of Halloween and keeps all of Spooky Land happy! Feed him candy to increase his health. Use the scare button to increase his power after threats to the Spirit of Halloween. Click start to play!"
 healthDisplay.innerText = `Health: 100`
@@ -128,6 +129,17 @@ const game = {
     
     clearMessage: function () {
     },
+
+    pumpkinChange: function () {
+        if(pumpkin.src = "game-images/eye-pumpkin.png") {
+        pumpkin.src = "game-images/flame-pumpkin.png"
+        pumpkin.style.size = 25%
+        } else if(pumpkin.src = "game-images/flame-pumpkin.png") {
+        pumpkin.src = "game-images/hand-pumpkin.png"
+        } else if(pumpkin.src = "game-images/hand-pumpkin.png") {
+        pumpkin.src = "game-images/eye-pumpkin.png"
+        }
+    },
     
     gameTimer: function() {
         game.winOrLose()
@@ -142,8 +154,9 @@ const game = {
             game.runThreat()
             /*
             */
+        } if(ticks%10 === 0) {
+            game.pumpkinChange()
         }
-        //message.innerText = ""
     },
   
     start: function() {
