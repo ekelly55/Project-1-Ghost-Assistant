@@ -111,6 +111,7 @@ button {
 
 .message-display {
     height: fit-content;
+    width: 375px;
     background-color: black;
     opacity: 0.75;
     font-weight: bold;
@@ -164,11 +165,21 @@ button {
 
 .ghost-pic {
     grid-row: 2 / span 1;
-    grid-column: 3 / span 1;
+    grid-column: 3 / span 2;
     display: flex;
     align-items: center;
-    justify-content: left;
+    justify-content: flex-start;
     opacity: 0.5;
+}
+/*
+talk bubble is inheriting some properties from ghost pic div. separate them or limit properties of that div and ascribe most of them to the ghost pic itself.
+*/
+.ghost-talk {
+    grid-row: 2 / span 1;
+    grid-column: 3 / span 1;
+    display: flex;
+    align-content: flex-start;
+    justify-content: flex-end;
 }
 
 .pumpkin-pic {

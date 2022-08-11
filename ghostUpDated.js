@@ -12,7 +12,7 @@ const startButton = document.getElementById("start-button")
 const candyButton = document.getElementById("candy-button")
 const scareButton = document.getElementById("scare-button")
 
-message.innerText = "Welcome to Spooky Land! This is Lord Halloween, the benevolent ruler of Spooky Land. His magic spooky power sustains the Spirit of Halloween and keeps all of Spooky Land happy! As a lowly novice ghost, your job is to attend to Lord Halloween's needs. Feed him candy to increase his health. There are many threats to the Spirit of Halloween, which will decrease Lord Halloween's power. Use the scare button to increase his power again."
+message.innerText = "Welcome to Spooky Land! As a lowly novice ghost, your job is to attend to every need of Lord Halloween, benevolent ruler of Spooky Land. His magic spooky power sustains the Spirit of Halloween and keeps all of Spooky Land happy! Feed him candy to increase his health. Use the scare button to increase his power after threats to the Spirit of Halloween. Click start to play!"
 healthDisplay.innerText = `Health: 100`
 powerDisplay.innerText = `Power: 100`
 ageDisplay.innerText = `Age: 3000000000 years old.`
