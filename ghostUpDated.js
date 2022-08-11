@@ -11,6 +11,7 @@ const ageDisplay = document.getElementById("age-display")
 const startButton = document.getElementById("start-button")
 const candyButton = document.getElementById("candy-button")
 const scareButton = document.getElementById("scare-button")
+const boo = document.getElementById("ghost-talk")
 
 message.innerText = "Welcome to Spooky Land! As a lowly novice ghost, your job is to attend to every need of Lord Halloween, benevolent ruler of Spooky Land. His magic spooky power sustains the Spirit of Halloween and keeps all of Spooky Land happy! Feed him candy to increase his health. Use the scare button to increase his power after threats to the Spirit of Halloween. Click start to play!"
 healthDisplay.innerText = `Health: 100`
@@ -53,6 +54,7 @@ const game = {
         } else if(game.power < 100){
             game.power = game.power + 10
         }
+            boo.style.opacity = 1;
             powerDisplay.innerText = `Power: ${game.power}`
             message.innerText = `You have stopped ${game.threat}. Lord Halloween's power is ${ game.power}`
         }
@@ -121,6 +123,7 @@ const game = {
     gameTimer: function() {
         game.winOrLose()
         ticks++
+        boo.style.opacity = 0;
         //console.log(ticks)
         if(ticks%1 === 0) {
             game.ageAndHealth()
