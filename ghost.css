@@ -13,15 +13,6 @@ html {
 
 body {
     height: 100%;
-    
-    
-    /*
-    background-size: 1920px 1080px;
-    background-repeat: no-repeat;
-    height: 1366px;
-    width: 2396px;
-    background-color: aqua;
-    */
     display: grid;
     grid-template-columns: 2fr 1fr 2fr;
     grid-template-rows: 1fr 3fr 1fr;
@@ -49,8 +40,7 @@ button {
 .start-button {
     background-color: purple;
     color:chartreuse;
-    border: 1px solid chartreuse;
-    
+    border: 1px solid chartreuse; 
 }
 
 .start-button:active {
@@ -117,7 +107,6 @@ button {
     font-weight: bold;
     padding: 10px;
     align-content: center;
-
 }
 
 .stats-wrapper {
@@ -146,9 +135,6 @@ button {
     padding-left: 5%;
     margin-left: 20px;
     margin-bottom: 10px;
-    /*
-    */
-    
 }
 
 .lh-pic {
@@ -199,12 +185,10 @@ button {
     height: 40%;
     justify-self: end;
     opacity: 0;
-
 }
 
 .ghost-wrapper {
-    display: flex;
-    
+    display: flex;  
 }
 
 .ghost-pic {
@@ -216,15 +200,11 @@ button {
     
 .ghost {
     opacity: 0.5;
-
 }
+
 .ghost-talk {
     display: flex;
     align-items: flex-start;
     opacity: 0;
 }
 
-
-/*
-talk bubble is inheriting some properties from ghost pic div. separate them or limit properties of that div and ascribe most of them to the ghost pic itself.
-*/
