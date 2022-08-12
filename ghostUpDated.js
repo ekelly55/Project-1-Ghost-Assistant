@@ -83,7 +83,7 @@ const game = {
         } else if(game.threat === "Timmy's Principal") {
              message.innerText =`Timmy's Principal hates when kids have fun at school! They won't let the students wear costumes or have a party! Their attitude is threatening the spirit of Halloween for all the students, and Lord Halloween is losing power! Scare Timmy's Principal to counter the threat and restore Lord Halloween's power!`
              game.power = game.power - 40
-             //why doesn't this threat reduce the power!?
+          
         } else if(game.threat === "Santa") {
              message.innerText = `The War on Halloween has begun! Stores are already selling Christmas decorations and playing All I Want For Christmas! Santa is threatening the spirit of Halloween for all everyone, and Lord Halloween is losing power! Scare Santa to counter the threat and restore Lord Halloween's power!`
              game.power =  game.power - 70
@@ -91,8 +91,6 @@ const game = {
             game.power = 0
         }
         powerDisplay.innerText = `Power: ${game.power}`
-        console.log(game.threat)
-        console.log(game.power)
         }
     },
         /*
