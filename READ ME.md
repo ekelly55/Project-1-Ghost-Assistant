@@ -25,25 +25,32 @@
   ![prototype game image](game-images/wireframe.jpg "wireframe")
 
   ### End Product
-
+  
+  Start Screen
   ![finished game image](game-images/Game-Start.png "start-screen")
 
+  Game Over Message
   ![finished game image](game-images/Game-Over.png "game-over")
-
+  
+  Threat Message
   ![finished game image](game-images/Threat-Example.png "threat-example")
 
   ### Code Samples
-
+  
+  Game Start Code
   ![finished game image](game-images/Game-Start-Code.png "game-start-code")
 
+  Threat Function
   ![finished game image](game-images/runThreat.png "threat-function")
-
+  
+  Candy and Scare Functions
   ![finished game image](game-images/Candy-and-Scare.png"candy-and-scare-functions")
-
+  
+  Win or Loss Conditions Function
   ![finished game image](game-images/winOrLose.png "win-or-loss-conditions")
 
   ## Technologies Used:
-  
+
   I used HTML to create the various divs for different sections of the game screen, as well as adding in the game images.
 
   I used CSS to style the game buttons, size the images, style the fonts and create text backgrounds. I used CSS grid to create the game screen layout and CSS flex to place items within grid cells. 
