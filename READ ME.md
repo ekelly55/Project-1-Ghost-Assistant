@@ -8,7 +8,7 @@ This game is a variation of Tamagotchi, a handheld digital pet game created by A
 
 Wireframe
 
-[![image alt text] (https://imgur.com/gallery/3AK8iJj)](https://imgur.com/gallery/3AK8iJj)
+[![image alt text] (https://i.imgur.com/qbHbCSr.jpeg)](https://i.imgur.com/qbHbCSr.jpeg)
 
 
 
