@@ -8,6 +8,10 @@
 
   This game is a variation of Tamagotchi, a handheld digital pet game created by Akihiro Yokoi and Aki Maita.
 
+  ## Game Link
+
+  [Game Page](https://ekelly55.github.io/Project-1-Ghost-Assistant/)
+
   ## User Stories
 
   -User will see a description of the game on page load.
