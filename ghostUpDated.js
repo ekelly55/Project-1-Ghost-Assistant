@@ -74,7 +74,7 @@ const game = {
         */
     
     runThreat: function () {
-        if(game.power > -0 && game.health > 0 && game.age < 3000000049){  
+        if(game.power > 0 && game.health > 0 && game.age < 3000000049){  
         game.threat = game.threatList[Math.floor(Math.random()*game.threatList.length)]
         if(game.threat === "Timmy's Mom") {
              message.innerText =`Timmy's Mom hates Halloween! She won't let Timmy decorate the house! Her attitude is threatening the spirit of Halloween for Timmy, and Lord Halloween is losing power! Scare Timmy's Mom to counter the threat and restore Lord Halloween's power!`
@@ -125,35 +125,17 @@ const game = {
         healthDisplay.innerText = `Health: ${game.health}`
     },
     
-    clearMessage: function () {
-    },
 
-    pumpkinChange: function () {
-        
-        if(pumpkin.src = "game-images/eye-pumpkin.png") {
-            pumpkin.src = "game-images/flame-pumpkin-resize.png"
-        } else if(pumpkin.src = "game-images/flame-pumpkin-resize.png") {
-            pumpkin.src = "game-images/hand-pumpkin-resize.png"
-        } else if(pumpkin.src = "game-images/hand-pumpkin-resize.png") {
-        pumpkin.src = "game-images/eye-pumpkin.png"
-        }
-    },
-    
     gameTimer: function() {
         game.winOrLose()
         ticks++
         boo.style.opacity = 0;
         yum.style.opacity = 0;
         noThanks.style.opacity = 1
-        //console.log(ticks)
         if(ticks%1 === 0) {
             game.ageAndHealth()
         } if(ticks%5 === 0) {
             game.runThreat()
-            /*
-        } if(ticks%10 === 0) {
-            game.pumpkinChange()
-            */
         }
     },
   
@@ -162,13 +144,6 @@ const game = {
     }, 
 }
 
-
-
-//gameLevelOne.ageAndHealth()
-
-//console.log(gameLevelOne.health)
-
-//start button only works after reload
 startButton.addEventListener("click", function () {
     interval = setInterval(game.start, 1000)
 })

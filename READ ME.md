@@ -1,13 +1,15 @@
 # Ghost Assistant
 
   ## Project Description
+
   You are a novice ghost assistant to Lord Halloween, the ruler of Spooky Land. You must keep him healthy and keep his magic spooky power up. His power is what maintains the Spirit of Halloween and keeps Spooky Land happy. 
 
   Lord Halloween's health declines with age. Click the CANDY button to feed him candy and restore his health. The greater danger is that threats to the Spirit of Halloween will deplete Lord Halloween's spooky power. Click the SCARE button to counter those threats and restore his power. 
 
   This game is a variation of Tamagotchi, a handheld digital pet game created by Akihiro Yokoi and Aki Maita.
 
-  ##User Stories
+  ## User Stories
+
   -User will see a description of the game on page load.
   -User will click start to play.
   -User must monitor the health and power displays.
@@ -19,14 +21,29 @@
   ## Game Images
 
   ### Wireframe
-  ![prototype game image](https://i.imgur.com/qbHbCSr.jpeg "wireframe")
+
+  ![prototype game image](game-images/wireframe.jpg "wireframe")
 
   ### End Product
 
+  ![finished game image](game-images/Game-Start.png "start-screen")
+
+  ![finished game image](game-images/Game-Over.png "game-over")
+
+  ![finished game image](game-images/Threat-Example.png "threat-example")
+
   ### Code Samples
 
+  ![finished game image](game-images/Game-Start-Code.png "game-start-code")
+
+  ![finished game image](game-images/runThreat.png "threat-function")
+
+  ![finished game image](game-images/Candy-and-Scare.png"candy-and-scare-functions")
+
+  ![finished game image](game-images/winOrLose.png "win-or-loss-conditions")
 
   ## Technologies Used:
+  
   I used HTML to create the various divs for different sections of the game screen, as well as adding in the game images.
 
   I used CSS to style the game buttons, size the images, style the fonts and create text backgrounds. I used CSS grid to create the game screen layout and CSS flex to place items within grid cells. 

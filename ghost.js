@@ -173,3 +173,17 @@ scareButton.addEventListener("click", gameLevelOne.scare)
 //make a function to change the pumpkin on an interval
 
 //and maybe an animation one to make the pumpkin jump or something on an interval. 
+
+clearMessage: function () {
+},
+
+pumpkinChange: function () {
+    
+    if(pumpkin.src = "game-images/eye-pumpkin.png") {
+        pumpkin.src = "game-images/flame-pumpkin-resize.png"
+    } else if(pumpkin.src = "game-images/flame-pumpkin-resize.png") {
+        pumpkin.src = "game-images/hand-pumpkin-resize.png"
+    } else if(pumpkin.src = "game-images/hand-pumpkin-resize.png") {
+    pumpkin.src = "game-images/eye-pumpkin.png"
+    }
+},
