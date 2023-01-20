@@ -5,25 +5,3 @@ make messages modals, make santa, teacher and mom characters
 level up: player XP and level variables. get items for levelling up: shades for halfway to level 2. level 2 will require a new object instance w/ new abilities and threats. 
 
 
-
-fix pumpkin change
-
-
-
-   pumpkinSelect: function () {
-        let currentPumpkin = pumpkinGroup[current]   
-        
-        pumpkin.src = currentPumpkin
-
-        if(current === 2){
-            current = 0
-        } else {
-
-            current++
-        }
-    },
-
-    let pumpkin = document.getElementById("pumpkin")
-
-    let current = 1
-

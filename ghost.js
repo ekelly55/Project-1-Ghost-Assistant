@@ -15,6 +15,8 @@ const candyButton = document.getElementById("candy-button")
 
 const scareButton = document.getElementById("scare-button")
 
+const speedSwitch = document.getElementById("switch")
+console.log(speedSwitch.checked)
 const boo = document.getElementById("ghost-talk")
 
 const yum = document.getElementById("yum")
@@ -22,10 +24,8 @@ const yum = document.getElementById("yum")
 const noThanks = document.getElementById("no-thanks")
 
 let pumpkin = document.getElementById("pumpkin")
-console.log(pumpkin)
-console.log(pumpkin.src)
+
 const pumpkinGroup = ["game-images/eye-pumpkin.png", "game-images/flame-pumpkin-resize.png", "game-images/hand-pumpkin-resize.png"]
-console.log(pumpkinGroup)
 
 let current = 0
 
@@ -221,22 +221,41 @@ const game = {
         yum.style.opacity = 0;
     
         noThanks.style.opacity = 1
-    
-        if(ticks%1 === 0) {
-    
-            game.ageAndHealth()
-    
-        } 
-        if(ticks%5 === 0) {
-    
-            game.runThreat()
-    
-        } 
-        if(ticks%5 === 0){
+
+        if(speedSwitch.checked = true){
             
-            game.pumpkinSelect()
+            
+            if(ticks%1 === 0) {
+                
+                game.ageAndHealth()
+                
+            } 
+            if(ticks%5 === 0) {
+                
+                game.runThreat()
+                
+            } 
+            if(ticks%5 === 0){
+                
+                game.pumpkinSelect()
+            }
+        } else {
+            if(ticks%2 === 0) {
+                
+                game.ageAndHealth()
+                
+            } 
+            if(ticks%10 === 0) {
+                
+                game.runThreat()
+                
+            } 
+            if(ticks%10 === 0){
+                
+                game.pumpkinSelect()
+            }
         }
-    
+            
     },
   
 
