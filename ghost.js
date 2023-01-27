@@ -16,7 +16,11 @@ const candyButton = document.getElementById("candy-button")
 const scareButton = document.getElementById("scare-button")
 
 const speedSwitch = document.getElementById("switch")
+
 console.log(speedSwitch)
+
+
+
 const boo = document.getElementById("ghost-talk")
 
 const yum = document.getElementById("yum")
@@ -28,6 +32,7 @@ let pumpkin = document.getElementById("pumpkin")
 const pumpkinGroup = ["game-images/eye-pumpkin.png", "game-images/flame-pumpkin-resize.png", "game-images/hand-pumpkin-resize.png"]
 
 let current = 0
+
 
 message.innerText = "Welcome to Spooky Land! As a lowly novice ghost, your job is to attend to every need of Lord Halloween, benevolent ruler of Spooky Land. His magic spooky power sustains the Spirit of Halloween and keeps all of Spooky Land happy! Feed him candy to increase his health. Use the scare button to increase his power after threats to the Spirit of Halloween. Click start to play!"
 
@@ -65,6 +70,7 @@ const game = {
 
     threatList: ["Timmy's Mom", "Timmy's Principal", "Santa"],
 
+  
     
     candy: function() {
 
@@ -222,7 +228,7 @@ const game = {
     
         noThanks.style.opacity = 1
 
-        if(speedSwitch.checked = true){
+        if(speedSwitch.checked === true){
             
             
             if(ticks%1 === 0) {
@@ -240,17 +246,17 @@ const game = {
                 game.pumpkinSelect()
             }
         } else {
-            if(ticks%2 === 0) {
+            if(ticks%5 === 0) {
                 
                 game.ageAndHealth()
                 
             } 
-            if(ticks%10 === 0) {
+            if(ticks%25 === 0) {
                 
                 game.runThreat()
                 
             } 
-            if(ticks%10 === 0){
+            if(ticks%25 === 0){
                 
                 game.pumpkinSelect()
             }
@@ -279,3 +285,5 @@ candyButton.addEventListener("click", game.candy)
 
 
 scareButton.addEventListener("click", game.scare)
+
+
