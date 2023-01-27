@@ -16,7 +16,7 @@ const candyButton = document.getElementById("candy-button")
 const scareButton = document.getElementById("scare-button")
 
 const speedSwitch = document.getElementById("switch")
-console.log(speedSwitch.checked)
+console.log(speedSwitch)
 const boo = document.getElementById("ghost-talk")
 
 const yum = document.getElementById("yum")
