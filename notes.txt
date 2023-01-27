@@ -5,3 +5,4 @@ make messages modals, make santa, teacher and mom characters
 level up: player XP and level variables. get items for levelling up: shades for halfway to level 2. level 2 will require a new object instance w/ new abilities and threats. 
 
 
+trying to figure out why my changes aren't going through to deployment fully
