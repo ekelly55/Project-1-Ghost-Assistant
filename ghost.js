@@ -226,11 +226,11 @@ const game = {
     
         yum.style.opacity = 0;
     
-        noThanks.style.opacity = 1
+        noThanks.style.opacity = 0
 
         if(speedSwitch.checked === true){
             
-            
+            //fast mode: age every second, threat every 5 s, pumpkin every 5
             if(ticks%1 === 0) {
                 
                 game.ageAndHealth()
@@ -246,18 +246,19 @@ const game = {
                 game.pumpkinSelect()
             }
         } else {
-            if(ticks%5 === 0) {
+            //tamagotchi mode: age every 15 min
+            if(ticks%900 === 0) {
                 
                 game.ageAndHealth()
                 
             } 
-            if(ticks%25 === 0) {
-                
+            if(ticks%10800 === 0) {
+                //run threat every 3 hrs
                 game.runThreat()
                 
             } 
-            if(ticks%25 === 0){
-                
+            if(ticks%7200 === 0){
+                //change pumpkin every 2 hrs
                 game.pumpkinSelect()
             }
         }
